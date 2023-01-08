@@ -16,6 +16,28 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from school.views import *
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('api/v1/teacher/', TeacherAPI.TeacherAPIListCreate.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/teacher/<int:pk>/',
+         TeacherAPI.TeacherAPIUpdateDestroyRetrieve.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+
+    path('api/v1/subject/', SubjectAPI.SubjectAPIListCreate.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/subject/<int:pk>/',
+         SubjectAPI.SubjectAPIUpdateDestroyRetrieve.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+
+    path('api/v1/student/', StudentAPI.StudentAPIListCreate.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/student/<int:pk>/',
+         StudentAPI.StudentAPIUpdateDestroyRetrieve.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+
+    path('api/v1/statement/', StatementAPI.StatementAPIListCreate.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/statement/<int:pk>/',
+         StatementAPI.StatementAPIUpdateDestroyRetrieve.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+
+    path('api/v1/offices/', OfficesAPI.OfficesAPIListCreate.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/offices/<int:pk>/',
+         OfficesAPI.OfficesAPIUpdateDestroyRetrieve.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
 ]
