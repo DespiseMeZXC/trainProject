@@ -1,0 +1,7 @@
+poetry show --tree
+poetry add ...
+poetry remove ...
+1.python -m venv .venv
+2.poetry init
+3.poetry config --local virtualenvs.in-project true
+4.poetry shell
