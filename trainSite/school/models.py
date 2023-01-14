@@ -32,7 +32,7 @@ class Statement(models.Model):
     student = models.ManyToManyField(Student, blank=True)
     teacher = models.ManyToManyField(Teacher, blank=True)
     rating = models.IntegerField(null=False)
-    quarter = models.IntegerField(null=False)
+    quarter = models.IntegerField(null=False) 
 
 
 class Offices(models.Model):
