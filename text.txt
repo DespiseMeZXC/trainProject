@@ -5,3 +5,64 @@ poetry remove ...
 2.poetry init
 3.poetry config --local virtualenvs.in-project true
 4.poetry shell
+
+"""
+subject
+[
+    {
+        "id": 1,
+        "title": "Математика",
+        "numberOfHours": 120
+    },
+    {
+        "id": 2,
+        "title": "Русский язык",
+        "numberOfHours": 120
+    },
+    {
+        "id": 3,
+        "title": "История",
+        "numberOfHours": 80
+    },
+    {
+        "id": 5,
+        "title": "Химия",
+        "numberOfHours": 44
+    },
+    {
+        "id": 6,
+        "title": "Литература",
+        "numberOfHours": 34
+    },
+    {
+        "id": 7,
+        "title": "Физика",
+        "numberOfHours": 50
+    },
+    {
+        "id": 4,
+        "title": "Обществознание",
+        "numberOfHours": 63
+    },
+    {
+        "id": 9,
+        "title": "Астрономия",
+        "numberOfHours": 72
+    }
+]
+offices
+[
+    {
+        "id": 1,
+        "title": "Кабинет Химии",
+        "number": 10,
+        "subject": 5
+    },
+    {
+        "id": 2,
+        "title": "Кабинет Русского языка",
+        "number": 11,
+        "subject": 2
+    }
+]
+"""
