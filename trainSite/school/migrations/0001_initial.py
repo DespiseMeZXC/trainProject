@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Statement',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('rating', models.IntegerField()),
                 ('quarter', models.IntegerField()),
             ],
@@ -23,7 +24,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Student',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('fio', models.CharField(max_length=150)),
                 ('grade', models.IntegerField()),
             ],
@@ -31,7 +33,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Subject',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=150)),
                 ('numberOfHours', models.IntegerField()),
             ],
@@ -39,35 +42,43 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Teacher',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('fio', models.CharField(max_length=150)),
                 ('experience', models.IntegerField()),
-                ('student', models.ManyToManyField(related_name='student', through='school.Statement', to='school.student')),
-                ('subject', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='school.subject')),
+                ('student', models.ManyToManyField(related_name='student',
+                 through='school.Statement', to='school.student')),
+                ('subject', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT, to='school.subject')),
             ],
         ),
         migrations.AddField(
             model_name='student',
             name='teacher',
-            field=models.ManyToManyField(related_name='teacher', through='school.Statement', to='school.teacher'),
+            field=models.ManyToManyField(
+                related_name='teacher', through='school.Statement', to='school.teacher'),
         ),
         migrations.AddField(
             model_name='statement',
             name='student',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='school.student'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='school.student'),
         ),
         migrations.AddField(
             model_name='statement',
             name='teacher',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='school.teacher'),
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE, to='school.teacher'),
         ),
         migrations.CreateModel(
             name='Offices',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=150)),
                 ('number', models.IntegerField()),
-                ('subject', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='school.subject')),
+                ('subject', models.ForeignKey(
+                    on_delete=django.db.models.deletion.PROTECT, to='school.subject')),
             ],
         ),
     ]
