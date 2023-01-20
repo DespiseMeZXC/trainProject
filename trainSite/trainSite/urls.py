@@ -17,29 +17,43 @@ from django.contrib import admin
 from django.urls import path
 
 from school.views import *
-from .yasg import urlpatterns as doc_urls 
+from .yasg import urlpatterns as doc_urls
+
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView, TokenVerifyView
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('api/v1/teacher/', TeacherView.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/teacher/',
+         TeacherView.as_view({'get': 'list', 'post': 'create'})),
     path('api/v1/teacher/<int:pk>/',
          TeacherView.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
 
-    path('api/v1/subject/', SubjectView.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/subject/',
+         SubjectView.as_view({'get': 'list', 'post': 'create'})),
     path('api/v1/subject/<int:pk>/',
          SubjectView.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
 
-    path('api/v1/student/', StudentView.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/student/',
+         StudentView.as_view({'get': 'list', 'post': 'create'})),
     path('api/v1/student/<int:pk>/',
          StudentView.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
 
-    path('api/v1/statement/', StatementView.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/statement/',
+         StatementView.as_view({'get': 'list', 'post': 'create'})),
     path('api/v1/statement/<int:pk>/',
          StatementView.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
 
-    path('api/v1/offices/', OfficesView.as_view({'get': 'list', 'post': 'create'})),
+    path('api/v1/offices/',
+         OfficesView.as_view({'get': 'list', 'post': 'create'})),
     path('api/v1/offices/<int:pk>/',
          OfficesView.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'})),
+
+    path('api/v1/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/v1/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/v1/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
 urlpatterns += doc_urls
