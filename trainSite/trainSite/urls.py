@@ -18,9 +18,8 @@ from django.urls import path, include
 
 from .yasg import urlpatterns as doc_urls
 
-from school import urls
-
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('api/v1/', include('school.urls'))
 ]
 

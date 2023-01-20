@@ -9,8 +9,6 @@ from rest_framework_simplejwt.views import (
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-
     path('teacher/',
          TeacherView.as_view({'get': 'list', 'post': 'create'})),
     path('teacher/<int:pk>/',
